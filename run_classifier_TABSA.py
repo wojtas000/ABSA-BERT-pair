@@ -352,7 +352,14 @@ def main():
     if args.init_eval_checkpoint is not None:
         model.load_state_dict(torch.load(args.init_eval_checkpoint, map_location='cpu'))
     elif args.init_checkpoint is not None:
-        model.bert.load_state_dict(torch.load(args.init_checkpoint, map_location='cpu'))
+        state_dict = torch.load(args.init_checkpoint, map_location='cpu')
+        new_state_dict = {}
+        for k, v in state_dict.items():
+            if k.startswith('bert.'):
+                new_state_dict[k[5:]] = v
+            else:
+                new_state_dict[k] = v
+        model.bert.load_state_dict(new_state_dict, strict=False)
     model.to(device)
 
     if args.local_rank != -1:
