@@ -132,6 +132,9 @@ class Sentihood_NLI_M_Processor(DataProcessor):
             text_a = tokenization.convert_to_unicode(str(line[1]))
             text_b = tokenization.convert_to_unicode(str(line[2]))
             label = tokenization.convert_to_unicode(str(line[3]))
+            # if label is nan then set it to None
+            if label=="nan":
+                label="None"
             if i%1000==0:
                 print(i)
                 print("guid=",guid)
