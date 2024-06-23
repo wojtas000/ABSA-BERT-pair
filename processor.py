@@ -121,7 +121,7 @@ class Sentihood_NLI_M_Processor(DataProcessor):
 
     def get_labels(self):
         """See base class."""
-        return ['None', 'Positive', 'Negative']
+        return ['None', 'Positive', 'Negative', 'Neutral']
 
     def _create_examples(self, lines, set_type):
         """Creates examples for the training and dev sets."""
