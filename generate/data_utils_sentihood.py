@@ -12,6 +12,7 @@ import xml.etree.ElementTree
 import nltk
 import numpy as np
 
+nltk.download('punkt')
 
 def load_task(data_dir, aspect2idx):
     in_file = os.path.join(data_dir, 'sentihood-train.json')
