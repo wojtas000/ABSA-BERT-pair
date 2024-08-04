@@ -4,14 +4,19 @@ from data_utils_apa import *
 
 data_dir='../data/apa/'
 aspect2idx = {
-    'Products & Services': 0,
-    'Production & Procurement & Infrastructure': 1,
-    'Staff Shortage': 2,
-    'Regulation and Legal Affairs': 3,
-    'Products': 4,
-    'Politics & Law': 5,
-    'Strategy & Management & Organization': 6,
-    'Economic Performance': 7
+    "Sustainability": 0,
+    "Expertise": 1,
+    "Innovation": 2,
+    "Marketing & Sales": 3,
+    "Personnel": 4,
+    "Politics & Law": 5,
+    "Products & Services": 6,
+    "Production & Infrastructure": 7,
+    "Scandals & Economic Crime": 8,
+    "Location Identification": 9,
+    "Strategy & Management": 10,
+    "External Function": 11,
+    "Economic Performance": 12
 }
 
 (train, train_aspect_idx), (dev, dev_aspect_idx), (test, test_aspect_idx) = load_task(data_dir, aspect2idx)
